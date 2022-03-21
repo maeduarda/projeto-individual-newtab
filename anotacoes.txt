@@ -1,0 +1,194 @@
+v 1-Validar o formulário para que todos os campos sejam preenchidos.
+v 2-Adicionar uma máscara no campo “Valor” para que apenas números sejam preenchidos e com a formatação correta. (Padrão: 10,90)
+v 3-Ao adicionar uma nova transação, persistir no Local Storage e já atualizar a lista com o extrato. Atualizar também o cálculo apresentado.
+v 4-Ao clicar no link “Limpar dados”, apresentar uma mensagem de confirmação e em seguida apagar as informações, atualizando a lista.
+5- As opções do campo “Tipo de transação” são: Compra e Venda.
+Caso não exista nenhuma transação cadastrada, adicione a mensagem “Nenhuma transação cadastrada.” na lista do Extrato.
+ 
+                    <tr>
+                        <td> + </td>
+                        <td> Lorem ipsum dolor sit, amet consectetur</td>
+                        <td> R$ 12.999,99</td>
+                    </tr>
+
+
+                    <tr>
+                        <td> - </td>
+                        <td> Quis nostrud exercitation</td>
+                        <td> R$ 99,99 </td>
+                    </tr>
+
+                    <tr>
+                        <td> + </td>
+                        <td> Lorem ipsum </td>
+                        <td> R$ 9,99</td>
+                    </tr>
+
+                    <tr>
+                        <td class="lines"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td> Total</td>
+                        <td class="extract-valor"> R$ 12.909,99 <br>
+                            <p class="profit">[LUCRO]</p>
+                        </td>
+                    </tr>
+ 
+
+
+ //menu mobile
+var btn = document.getElementById('mobile-btn')
+
+function btnMenu() {
+    var nav = document.getElementById('nav')
+    nav.classList.toggle('active');
+}
+
+document.querySelector('form')
+    .addEventListener('submit', event => {
+        event.preventDefault()
+    });
+
+
+
+
+//validação do formulário
+function validarForm() {
+    
+    var mercadoria = document.getElementById('name-merc');
+    var labelNome = document.getElementById('label-name');
+
+
+    var transacao = document.getElementById('type-trans');
+    var labelTransacao = document.getElementById('label-type-trans');
+
+
+    var valor = document.getElementById('value-trans');
+    var labelValor = document.getElementById('label-value');
+
+
+    if (transacao.value == 0 || transacao.value == '') {
+        labelTransacao.setAttribute('style', 'color: red')
+        labelTransacao.innerHTML = '<strong>Tipo de transação: *este campo não pode estar vazio </strong>'
+        transacao.focus();
+        return false
+    } else {
+        labelTransacao.setAttribute('style', 'color: black')
+        labelTransacao.innerHTML = 'Tipo de transação:'
+
+    }
+
+    if (mercadoria.value == '') {
+        labelNome.setAttribute('style', 'color: red')
+        labelNome.innerHTML = '<strong>Nome da mercadoria: *este campo não pode estar vazio </strong>'
+        mercadoria.focus()
+        return false
+    } else {
+        labelNome.setAttribute('style', 'color: black')
+        labelNome.innerHTML = 'Nome da mercadoria:'
+
+    }
+
+    if (valor.value == '') {
+        labelValor.setAttribute('style', 'color: red')
+        labelValor.innerHTML = '<strong>Valor: *este campo não pode estar vazio </strong>'
+        valor.focus();
+        return false
+    } else {
+        labelValor.setAttribute('style', 'color: black')
+        labelValor.innerHTML = 'Valor:'
+    }
+
+    var extratoRaw = localStorage.getItem('extrato')
+    if (extratoRaw != null) {
+        var extrato = JSON.parse(extratoRaw)
+    } else {
+        var extrato = [];
+    }
+
+
+    extrato.push({
+        tipo_transacao: elements['tipo-transacao'].value,
+        mercadoria: elements['mercadoria'].value,
+        valor: elements['valor'].value
+
+    })
+
+    localStorage.setItem('extrato', JSON.stringify(extrato))
+}
+
+//mascara do input de valor
+String.prototype.reverse = function () {
+    return this.split('').reverse().join('');
+};
+
+function mascaraValor(campo, evento) {
+    var tecla = (!evento) ? window.event.keyCode : evento.which;
+    var valor = campo.value.replace(/[^\d]+/gi, '').reverse();
+    var resultado = "";
+    var mascara = "##.###.###,##".reverse();
+    for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
+        if (mascara.charAt(x) != '#') {
+            resultado += mascara.charAt(x);
+            x++;
+        } else {
+            resultado += valor.charAt(y);
+            y++;
+            x++;
+        }
+    }
+    campo.value = resultado.reverse();
+}
+
+
+
+
+function desenhaTabela() {
+   var confirmacao = prompt('Digite 1 se você realmente deseja limpar os dados, ou 2 para cancelar')
+   if(confirmacao == 1) {
+    linhasExistentes = [...document.querySelectorAll('table.list tbody .dinamic-content')];
+    linhasExistentes.forEach((element) => {
+        element.remove()
+    });
+
+    document.querySelector('tr.message').innerHTML += "Não há nenhuma transação cadastrada"
+     
+   }
+   
+}
+
+for (info in extrato){
+    document.querySelector('table. list tbody').innerHTML += `
+    <tr class="dinamic-content">
+        <td>${(extrato[info].tipo_transacao == 'compra' ? '-' : '+')}  </td>
+        <td>${extrato[info].mercadoria}</td>
+        <td> R$ ${extrato[info].valor}</td>
+    </tr>   `
+}
+
+document.querySelector('table.list tbody').innerHTML += ` 
+<tr class="message">
+<td class="lines"></td>
+</tr>
+
+<tr>
+<td></td>
+<td> Total</td>
+<td class="extract-valor"> R$ <br>
+    <p class="profit">[LUCRO]</p>
+</td>
+</tr>` 
+
+function deleteUser(e) {
+    desenhaTabela(extrato.splice(e)); 
+    localStorage.setItem('extrato', JSON.stringify(extrato))
+}
+
+
+
+
+
+
+

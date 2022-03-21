@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Desktop*/
+
+li:hover {
+    transition: 0.3s;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.img-logo {
+    margin: 0 15px;
+}
+
+
+.title-logo {
+   width: 100%;
+   color: #333333;
+}
+
+nav {
+    display: flex;
+    align-items:center ;
+    background: #E0E0E0;
+    height: 80px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    white-space: nowrap;
+    margin: 10px;
+    background: #FFFFFF;  
+}
+
+.nav-list li, span {
+    margin: 0 15px;
+    padding: 15px;
+    color:#333333;
+    font-weight: bold;
+}
+
+.nav-list li a {
+    color:#333333;
+    text-decoration: none;
+ }
+
+.x {
+    display: none;
+}
+
+.mobile-btn {
+    display: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    margin: 0px 90px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.title-form {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    padding: 20px 10px;
+    width: 100%;  
+}
+
+.field {
+    margin-bottom: 1em;
+}
+
+.fields label {
+    margin-bottom: 0.2em;
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+input, select, button {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 4px;
+    margin-top: 10px;
+    height: 32px;
+   
+}
+
+.button {
+    color:white;
+    font-weight: bold;
+    background-color: #333333;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.extract {
+  width: 100%;
+  margin: 20px;
+}
+
+.title-extract {
+    font-size:20px;
+    font-weight: bold;
+}
+.list{
+   width: 100%;
+   border-spacing: 0;
+   border-collapse: collapse; 
+
+}
+
+
+.list tr:first-child {
+    vertical-align: top;
+    font-weight: bold;
+    
+}
+
+.list tr:last-child{
+    font-weight: bold;
+    border: transparent;
+}
+
+.list tr td {
+    padding: 4px;
+    font-size: 14px; 
+    
+}  
+
+
+.list tr {
+    border-bottom: 1px solid #979797;
+    width: 100%; 
+}
+
+tr .message {
+    font-size: 14px;
+    text-align: center;
+
+}
+
+
+.title-extract {
+    text-align: center;
+    font-size: 16px;
+}
+
+.profit {
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+
+
+/*Mobile*/
+
+@media(max-width:768px) {
+
+    .title-logo {
+        text-align: center;
+    }
+
+    .nav-list {
+        width: 100%;
+        display: none;
+        top: 0;
+        right: 0;
+        position: fixed;
+        margin-right: 0;
+        margin-top: 0;
+        width: 70vw;
+        height: 92vh;
+        background:  #333333;
+        flex-direction: column;
+        padding: 30px 20px;
+      
+    }
+
+    .nav-list li {
+        color: #FFFFFF;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .x {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-list li:hover {
+        background: #FFFFFF;
+        color: #333333;
+    }
+
+    .nav-list li a {
+        color: #FFFFFF;
+        text-decoration: none;
+     }
+
+    span {
+        display: none;
+    }
+
+    .mobile-btn {
+        display: block;
+        margin-right: 10px;
+    }
+    #nav.active{
+        display: block;
+    }
+     main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 2px;
+            justify-content: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        border: 0;
+    }
+
+    .title-form {
+       display: none;
+     
+    }
+
+   
+
+    #divider {
+        width: 100%;
+        border: 1px solid #979797;
+    }
+
+}
+
+/*Tablet*/
+@media(min-width : 768px) and (max-width: 1025px) {
+    .title-logo {
+        text-align: center;
+    }
+    .nav-list {
+         width: 100%;
+         display: none;
+         position: fixed;
+         top: 0;
+         right: 0;
+         margin-right: 0;
+         margin-top: 0;
+         width: 40vh;
+         height: 90vh;
+         background:  #333333;
+         flex-direction: column;
+         padding: 30px 20px;
+    }
+
+    .nav-list li {
+        color: #FFFFFF;
+        text-align: right;
+    }
+
+    .x {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-list li:hover {
+        background: #FFFFFF;
+        color: #333333;
+        
+    }
+
+    .nav-list li a {
+       color: #FFFFFF;
+       text-decoration: none;
+    }
+
+    span {
+        display: none;
+    }
+
+    .mobile-btn {
+        display: block;
+        margin-right: 10px;
+    }
+
+    #nav.active{
+        display: block;
+    }
+
+    main {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: center;
+    }
+
+    form {
+        width: 100%;
+        border: 1px solid #979797;
+    }
+
+    .fields {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 30px;
+    }
+
+    input, select {
+        width: 100%;
+   }
+
+   
+    .field-merc {
+        width: calc(50% - 20px);
+        margin: 0 10px;
+       
+    }
+
+    .field-type-trans, .field-value {
+        width: 25%;
+    }
+
+    .button {
+        border-radius: 4px;
+        width: 25%;
+        margin-left: 75%;
+    }
+
+    .extract {
+       padding: 10px 0;
+       margin: 10px;
+    }
+
+}

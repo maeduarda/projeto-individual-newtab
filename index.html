@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro - Front-End</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+ 
+   
+</head> 
+
+<body>
+    <header class="header">
+        <nav>
+            <img src="./assets/images/logo.png" alt="Logo" class="img-logo">
+            <h3 class="title-logo">Controle Financeiro</h3>
+            <div class="mobile-btn">
+                <img src="./assets/images/open.svg" alt="" onclick="btnMenu()">
+            </div>
+            <ul class="nav-list" id="nav">
+                <img class="x" id="x" src="./assets/images/close.svg" alt="" onclick="btnMenu()">
+                <li>Cadastro de Transações</li>
+                <span> | </span>
+                <li><a onclick="deleteUser(info)">Limpar dados</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+        <main>
+
+            <form onsubmit="validarForm(event)">
+                <div class="title-form">
+                    <h3 class="title-form">Nova transação</h3>
+
+                </div>
+
+                <div class="fields">
+
+                    <div class="field-type-trans">
+                        <label for="type-trans" id="label-type-trans">Tipo da transação</label>
+                        <select name="type-trans" id="type-trans">
+                            <option value="0">Selecione</option>
+                            <option value="compra">Compra</option>
+                            <option value="venda">Venda</option>
+                        </select>
+                    </div>
+
+
+                    <div class="field-merc">
+                        <label for="name-merc" id="label-name">Nome da mercadoria </label>
+                         <input type="text" name="name-merc" placeholder="Mercadoria" id="name-merc">
+                    </div>
+
+
+                    <div class="field-value">
+                        <label for="value-trans" id="label-value">Valor</label>
+                        <input type="text" class="precos"  name="value-trans" id="value-trans" placeholder=" R$ 0,00" onKeyUp="mascaraValor(this, event);">
+                    </div>
+                </div>
+
+                <div class="div-button">
+                    <button class="button" type="submit">Adicionar transação</button>
+                </div>
+
+
+            </form>
+
+            <div id="divider"></div>
+
+
+            <div class="extract">
+                <table class="list">
+                    <h3 class="title-extract">Extrato de transações</h3>
+
+                    <tr>
+                        <td class="signals"></td>
+                        <td class="merc">Mercadoria</td>
+                        <td class="value">Valor</td>
+                    </tr>
+
+                    <tr id="msg">
+                        <td></td>
+                        <td>
+                            Nenhuma transação cadastrada
+                        </td>
+                    </tr>
+                
+                </table>
+
+            </div>
+
+        </main>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/localStorage.js"></script>
+</body>
+
+</html>
