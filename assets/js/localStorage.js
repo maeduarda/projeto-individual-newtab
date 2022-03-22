@@ -30,6 +30,17 @@ function desenhaTabela() {
 }
 desenhaTabela()
 
+// calculo do valor total 
+total = 0
+
+var conv = Number(extrato.valor)
+for (let i of extrato) {
+        total += parseFloat(i.valor)
+      
+}
+
+console.log(total)
+
 
 document.querySelector('table.list tbody').innerHTML += ` 
 <tr class="message">
@@ -39,8 +50,8 @@ document.querySelector('table.list tbody').innerHTML += `
 <tr>
 <td></td>
 <td> Total</td>
-<td class="extract-valor"><br>
-    <p class="profit">[LUCRO]</p>
+<td class="extract-valor">R$ ${total}<br>
+    <p class="profit">${total > 0 ? "[LUCRO]": "[PREJUÍZO]"}</p>
 </td>
 </tr>` 
 

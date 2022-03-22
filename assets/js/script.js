@@ -17,8 +17,6 @@ window.onload = function () {
         
 };
 
-
-
 function validarForm(event) {
     //validação do formulário
     var mercadoria = document.getElementById('name-merc');
