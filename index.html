@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle Financeiro - Front-End</title>
     <link rel="stylesheet" href="./assets/css/style.css">
- 
-   
 </head> 
 
 <body>
@@ -56,7 +54,7 @@
 
                     <div class="field-value">
                         <label for="value-trans" id="label-value">Valor</label>
-                        <input type="text" class="precos"  name="value-trans" id="value-trans" placeholder=" R$ 0,00" onKeyUp="mascaraValor(this, event);">
+                        <input type="text" class="precos"  name="value-trans" id="value-trans" placeholder=" R$ 0,00" maxlength="9" onkeyup="formatarMoeda()">
                     </div>
                 </div>
 
@@ -94,6 +92,7 @@
         </main>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/localStorage.js"></script>
+
 </body>
 
 </html>

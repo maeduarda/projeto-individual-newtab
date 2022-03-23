@@ -81,27 +81,23 @@ function validarForm(event) {
 }
 
 //mascara do input de valor
-String.prototype.reverse = function () {
-    return this.split('').reverse().join('');
-};
+function formatarMoeda() {
+    var elemento = document.getElementById('value-trans');
+    var valor = elemento.value;
 
-function mascaraValor(campo, evento) {
-    var tecla = (!evento) ? window.event.keyCode : evento.which;
-    var valor = campo.value.replace(/[^\d]+/gi, '').reverse();
-    var resultado = "";
-    var mascara = "##.###.###,##".reverse();
-    for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
-        if (mascara.charAt(x) != '#') {
-            resultado += mascara.charAt(x);
-            x++;
-        } else {
-            resultado += valor.charAt(y);
-            y++;
-            x++;
-        }
+    valor = valor + '';
+    valor = parseInt(valor.replace(/[\D]+/g, ''));
+    valor = valor + '';
+    valor = valor.replace(/([0-9]{2})$/g, ",$1");
+
+    if (valor.length > 6) {
+        valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
     }
-    campo.value = resultado.reverse();
+
+    elemento.value = valor;
+    if(valor == 'NaN') elemento.value = '';
 }
+
 
 
 

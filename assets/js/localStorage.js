@@ -39,6 +39,7 @@ for (var i of extrato) {
         } else if(i.tipo_transacao == 'venda') {
             total += parseFloat(i.valor.replace(',', '.'))
            var dinheiro = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); 
+        
         }
 }
 
