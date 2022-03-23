@@ -31,28 +31,28 @@ function desenhaTabela() {
 desenhaTabela()
 
 // calculo do valor total 
-total = 0
-
-var conv = Number(extrato.valor)
-for (let i of extrato) {
-        total += parseFloat(i.valor)
-      
+var total = 0
+for (var i of extrato) {
+        if(i.tipo_transacao == 'compra') {
+            total -= parseFloat(i.valor.replace(',', '.'))
+             var dinheiro = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); 
+        } else if(i.tipo_transacao == 'venda') {
+            total += parseFloat(i.valor.replace(',', '.'))
+           var dinheiro = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}); 
+        }
 }
-
-console.log(total)
 
 
 document.querySelector('table.list tbody').innerHTML += ` 
 <tr class="message">
 <td class="lines"></td>
 </tr>
-
-<tr>
+<tr class="total">
 <td></td>
 <td> Total</td>
-<td class="extract-valor">R$ ${total}<br>
+<td class="extract-valor">${dinheiro == undefined ?  '0,00' : dinheiro}<br>
     <p class="profit">${total > 0 ? "[LUCRO]": "[PREJUÍZO]"}</p>
-</td>
+</td> 
 </tr>` 
 
 
