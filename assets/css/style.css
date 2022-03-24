@@ -209,10 +209,16 @@ tr .message {
         color: #333333;
     }
 
-    .nav-list li a {
+    .nav-list li a{
         color: #FFFFFF;
         text-decoration: none;
      }
+
+     .nav-list li:hover a{
+        color: #333333;
+    }
+
+
 
     span {
         display: none;
@@ -283,7 +289,7 @@ tr .message {
         cursor: pointer;
     }
 
-    .nav-list li:hover {
+    .nav-list li:hover{
         background: #FFFFFF;
         color: #333333;
         
@@ -293,6 +299,13 @@ tr .message {
        color: #FFFFFF;
        text-decoration: none;
     }
+
+    .nav-list li:hover a{
+        color: #333333;
+        
+    }
+
+
 
     span {
         display: none;
