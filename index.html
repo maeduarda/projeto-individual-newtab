@@ -21,7 +21,7 @@
                 <img class="x" id="x" src="./assets/images/close.svg" alt="" onclick="btnMenu()">
                 <li>Cadastro de Transações</li>
                 <span> | </span>
-                <li><a onclick="deleteUser(info)">Limpar dados</a></li>
+                <li><a onclick="deletaTabela()">Limpar dados</a></li>
             </ul>
         </nav>
     </header> 
@@ -54,7 +54,7 @@
 
                     <div class="field-value">
                         <label for="value-trans" id="label-value">Valor</label>
-                        <input type="text" class="precos"  name="value-trans" id="value-trans" placeholder=" R$ 0,00" maxlength="9" onkeyup="formatarMoeda()">
+                        <input type="text" class="precos"  name="value-trans" id="value-trans" placeholder=" R$ 0,00" onkeyup="formatarMoeda()">
                     </div>
                 </div>
 
@@ -80,8 +80,8 @@
 
                     <tr id="msg">
                         <td></td>
-                        <td>
-                            Nenhuma transação cadastrada
+                        <td id="mensagem">
+                           Nenhuma transação cadastrada
                         </td>
                     </tr>
                 
@@ -91,8 +91,6 @@
 
         </main>
 <script src="../assets/js/script.js"></script>
-<script src="../assets/js/localStorage.js"></script>
-
 </body>
 
 </html>
