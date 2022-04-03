@@ -139,14 +139,13 @@ input, select, button {
 
 .list tr td {
     padding: 4px;
-    font-size: 14px; 
-    
+    font-size: 14px;  
 }  
 
 
 .list tr {
     border-bottom: 1px solid #979797;
-    width: 100%; 
+   margin: 100%;
 }
 
 tr .message {
@@ -165,6 +164,10 @@ tr .message {
     font-size: 10px;
     font-weight: bold;
     margin-left: 6px;
+}
+
+#mensagem {
+    text-align: center;
 }
 
 
@@ -217,9 +220,9 @@ tr .message {
      .nav-list li:hover a{
         color: #333333;
     }
-
-
-
+    #mensagem p{
+        text-align: center;
+    }
     span {
         display: none;
     }
@@ -303,6 +306,10 @@ tr .message {
     .nav-list li:hover a{
         color: #333333;
         
+    }
+
+    #mensagem {
+        text-align: center;
     }
 
 
