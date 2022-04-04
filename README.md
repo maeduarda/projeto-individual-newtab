@@ -18,4 +18,10 @@ Esse projeto foi desenvolvido usando as seguintes tecnologias
 
 ## 🔥 Visualização
 
-[![Deploy with Vercel](https://vercel.com/button)](https://dreamy-taffy-64733c.netlify.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://kaleidoscopic-peony-9703da.netlify.app/)
+
+<h3 align="center">
+Com 🖤 Maria Eduarda
+</h3>
+
+
